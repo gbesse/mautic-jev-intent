@@ -17,7 +17,7 @@ def process(event, *, evaluate=decide, update=None):
         fields=submission.get("results") or {}
         field=os.environ.get("MAUTIC_MESSAGE_FIELD","message")
         text=fields.get(field,"") if isinstance(fields,dict) else ""
-        if not isinstance(contact.get("id"),int) or not text.strip(): continue
+        if not isinstance(contact.get("id"),int) or not isinstance(text,str) or not text.strip(): continue
         result=evaluate(text,POLICY,os.environ["TYPESAFE_API_KEY"])
         (update or update_contact)(contact["id"],result["outcome"])
         results.append({"contactId":contact["id"],"decision":result})
