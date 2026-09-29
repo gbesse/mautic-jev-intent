@@ -1,6 +1,6 @@
 # Mautic Jev Intent
 
-Experimental community alpha v0.1.0 · MIT.
+Experimental community alpha v0.1.1 · MIT.
 
 ## Français
 
@@ -16,6 +16,8 @@ Variables serveur : `TYPESAFE_API_KEY, MAUTIC_WEBHOOK_SECRET, MAUTIC_URL, MAUTIC
 
 Créer un champ Contact `jev_intent`, activer l’API et configurer l’événement webhook `mautic.form_on_submit` vers `/webhook`. L’API Basic doit être activée sur l’instance.
 
+Les valeurs de formulaire qui ne sont pas du texte sont ignorées. Les charges JSON invalides reçoivent une réponse 400.
+
 ## English
 
 A service receives Mautic form submissions, verifies HMAC SHA256, and writes intent to a custom Contact field.
@@ -30,6 +32,8 @@ Server variables: `TYPESAFE_API_KEY, MAUTIC_WEBHOOK_SECRET, MAUTIC_URL, MAUTIC_A
 
 Create a `jev_intent` Contact field, enable the API, and configure the `mautic.form_on_submit` webhook event to `/webhook`. Basic API authentication must be enabled on the instance.
 
+Form values that are not text are skipped. Invalid JSON payloads receive a 400 response.
+
 ## Español
 
 Un servicio recibe envíos de formularios de Mautic, verifica HMAC SHA256 y escribe la intención en un campo personalizado del contacto.
@@ -43,6 +47,8 @@ python3 app.py
 Variables del servidor: `TYPESAFE_API_KEY, MAUTIC_WEBHOOK_SECRET, MAUTIC_URL, MAUTIC_API_USER, MAUTIC_API_PASSWORD, MAUTIC_INTENT_FIELD (optional; default: jev_intent), MAUTIC_MESSAGE_FIELD (optional; default: message)`. Mantén los secretos fuera del repositorio y de la configuración visible para usuarios.
 
 Crea un campo de Contacto `jev_intent`, activa la API y configura el evento webhook `mautic.form_on_submit` hacia `/webhook`. Debe estar activa la autenticación Basic de la API.
+
+Se omiten los valores de formulario que no sean texto. Las cargas JSON inválidas reciben una respuesta 400.
 
 ## Verification / Vérification / Verificación
 

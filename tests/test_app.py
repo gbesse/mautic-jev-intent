@@ -11,6 +11,10 @@ class MauticTests(unittest.TestCase):
         self.assertEqual(calls,[(5,"demo")])
         self.assertEqual(result[0]["contactId"],5)
 
+    def test_non_text_form_value_is_skipped(self):
+        event={"mautic.form_on_submit":[{"submission":{"lead":{"id":5},"results":{"message":["a","b"]}}}]}
+        self.assertEqual(process(event,evaluate=lambda *_: self.fail("Jev must not run")),[])
+
     def test_contact_patch_request(self):
         from app import update_contact
         requests=[]
