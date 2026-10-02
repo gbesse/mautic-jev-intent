@@ -1,8 +1,10 @@
 # Mautic Jev Intent
 
-Experimental community alpha v0.1.1 · MIT.
+Experimental community alpha v0.1.2 · MIT.
 
 ## Français
+
+Exemple hors ligne : `python3 examples/offline_decisions.py` rejoue « Un contact demande une démonstration en direct la semaine prochaine. » avec une réponse synthétique à forte puis faible probabilité. La faible probabilité reste en revue ; aucune clé ni requête réseau.
 
 Un service reçoit les soumissions de formulaire Mautic, vérifie HMAC SHA256 et écrit l’intention dans un champ Contact personnalisé.
 
@@ -20,6 +22,8 @@ Les valeurs de formulaire qui ne sont pas du texte sont ignorées. Les charges J
 
 ## English
 
+Offline example: `python3 examples/offline_decisions.py` replays “A contact asks for a live demonstration next week.” with synthetic high and low probability responses. Low probability remains in review; no key or network request.
+
 A service receives Mautic form submissions, verifies HMAC SHA256, and writes intent to a custom Contact field.
 
 Setup:
@@ -35,6 +39,8 @@ Create a `jev_intent` Contact field, enable the API, and configure the `mautic.f
 Form values that are not text are skipped. Invalid JSON payloads receive a 400 response.
 
 ## Español
+
+Ejemplo sin conexión: `python3 examples/offline_decisions.py` reproduce «Un contacto solicita una demostración en vivo la próxima semana.» con respuestas sintéticas de probabilidad alta y baja. La probabilidad baja queda para revisión; no requiere clave ni red.
 
 Un servicio recibe envíos de formularios de Mautic, verifica HMAC SHA256 y escribe la intención en un campo personalizado del contacto.
 
